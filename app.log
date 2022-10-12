@@ -1,0 +1,71 @@
+2022-10-05 10:57:47,434 [INFO] 83322 4580480512 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:00:16,313 [INFO] 83322 4580480512 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:01:19,611 [INFO] 83607 4502554112 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:02:34,136 [INFO] 83607 4502554112 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:02:34,631 [INFO] 83658 4577650176 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:02:37,166 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9697
+2022-10-05 11:02:37,187 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /static/account/css/style.css HTTP/1.1" 304 0
+2022-10-05 11:02:37,206 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /static/account/js/header.js HTTP/1.1" 304 0
+2022-10-05 11:02:37,226 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /static/account/img/riwb_simbol.png HTTP/1.1" 200 287533
+2022-10-05 11:02:37,251 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /static/account/img/Server-bro.svg HTTP/1.1" 200 145579
+2022-10-05 11:02:37,276 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /static/account/img/Press%20pause-bro.svg HTTP/1.1" 304 0
+2022-10-05 11:02:37,305 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /static/account/img/Face%20to%20face-bro.svg HTTP/1.1" 304 0
+2022-10-05 11:02:37,317 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /static/account/img/trial_video_thumb.png HTTP/1.1" 200 477741
+2022-10-05 11:02:39,870 [INFO] 83658 123145421017088 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /account/logout/ HTTP/1.1" 302 0
+2022-10-05 11:02:39,878 [INFO] 83658 123145421017088 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 11:02:39,882 [INFO] 83658 123145404227584 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 62281)
+
+2022-10-05 11:02:55,263 [INFO] 83658 123145421017088 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 62282)
+
+2022-10-05 11:07:04,705 [INFO] 83860 4330374656 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:07:08,916 [INFO] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 11:07:10,245 [INFO] 83860 123145382359040 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 11:07:10,250 [INFO] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 63383)
+
+2022-10-05 11:07:11,076 [INFO] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 11:07:11,081 [INFO] 83860 123145382359040 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 63384)
+
+2022-10-05 11:07:12,140 [INFO] 83860 123145382359040 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 11:07:12,145 [INFO] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 63393)
+
+2022-10-05 11:07:27,564 [INFO] 83860 123145382359040 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 63398)
+
+2022-10-05 11:07:32,702 [INFO] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /account/login/ HTTP/1.1" 200 4127
+2022-10-05 11:07:35,537 [INFO] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "POST /account/login/ HTTP/1.1" 302 0
+2022-10-05 11:07:35,576 [INFO] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /study/ HTTP/1.1" 200 4049
+2022-10-05 11:07:35,625 [WARNING] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/log.py:224 Not Found: /media/genre/data_science-1.jpeg
+2022-10-05 11:07:35,625 [WARNING] 83860 123145365569536 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /media/genre/data_science-1.jpeg HTTP/1.1" 404 5709
+2022-10-05 11:14:10,853 [INFO] 83860 4330374656 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:15:06,783 [INFO] 84188 4629321216 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:15:11,277 [INFO] 84188 123145436827648 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /account/logout/ HTTP/1.1" 302 0
+2022-10-05 11:15:11,289 [INFO] 84188 123145436827648 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 11:15:26,854 [INFO] 84188 123145436827648 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 65335)
+
+2022-10-05 11:29:37,661 [INFO] 84799 4679390720 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:29:59,254 [INFO] 84799 4679390720 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:29:59,760 [INFO] 84858 4364109312 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:30:08,099 [INFO] 84858 4364109312 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:30:08,708 [INFO] 84894 4662621696 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:31:04,827 [INFO] 84894 4662621696 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:31:05,366 [INFO] 84934 4498441728 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:31:27,922 [INFO] 84934 4498441728 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:31:28,426 [INFO] 84957 4535031296 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:31:42,852 [INFO] 84957 4535031296 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:31:43,409 [INFO] 84978 4646397440 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:35:33,614 [INFO] 84978 4646397440 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:35:34,228 [INFO] 85108 4473021952 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 11:41:38,519 [INFO] 85108 4473021952 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/settings.py changed, reloading.
+2022-10-05 11:41:39,293 [INFO] 85411 4409374208 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 13:35:54,235 [INFO] 88639 4631991808 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 13:36:02,554 [INFO] 88639 123145376296960 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 13:36:05,927 [INFO] 88639 123145376296960 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:75 - Broken pipe from ('127.0.0.1', 58343)
+
+2022-10-05 14:05:04,144 [INFO] 90091 4689397248 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 14:05:53,139 [INFO] 90091 4689397248 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:250 /Users/kiyo/Desktop/RIWB/RIWB_academy/config/local_settings.py changed, reloading.
+2022-10-05 14:05:53,746 [INFO] 90137 4602766848 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/autoreload.py:636 Watching for file changes with StatReloader
+2022-10-05 14:05:56,919 [INFO] 90137 123145595494400 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET / HTTP/1.1" 200 9206
+2022-10-05 14:05:59,146 [INFO] 90137 123145612283904 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /account/login/ HTTP/1.1" 200 4127
+2022-10-05 14:06:02,665 [INFO] 90137 123145612283904 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "POST /account/login/ HTTP/1.1" 302 0
+2022-10-05 14:06:02,724 [INFO] 90137 123145612283904 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /study/ HTTP/1.1" 200 4049
+2022-10-05 14:06:02,759 [WARNING] 90137 123145612283904 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/utils/log.py:224 Not Found: /media/genre/data_science-1.jpeg
+2022-10-05 14:06:02,759 [WARNING] 90137 123145612283904 /Users/kiyo/Desktop/RIWB/academy_app/venv/lib/python3.9/site-packages/django/core/servers/basehttp.py:161 "GET /media/genre/data_science-1.jpeg HTTP/1.1" 404 5709

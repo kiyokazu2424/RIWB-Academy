@@ -1,0 +1,53 @@
+初期のsshとhttpの認証などについての設定とpush
+https://qiita.com/mumucochimu/items/da6b392568b0d8d21d7d
+sshの鍵の設定
+https://qiita.com/shizuma/items/2b2f873a0034839e47ce
+
+現在のディレクトリを作業ディレクトリとする
+git init 
+
+ファイルをステージングエリア（コミット対象に）あげる
+ファイルをステージ：git add ファイル名
+変更されてる全てのファイルをステージ：git add .
+addを取り消す：git reset HEAD,git reset HEAD ファイル名
+
+コミットする
+コミットする：git commit -m 'コミット内容記述'
+ひとつ前のコミットと統合：git commit --amend -m 'コミット名'
+
+プッシュする
+リモートの同名ブランチにプッシュ：git push origin 'ブランチ名'
+更新ブランチを明示してプッシュ：git push origin 'ローカルのブランチ':'プッシュ先のブランチ'
+
+gitのログを確認
+ログ確認：git log
+簡潔にまとめて表示：git log --online
+変更を見たい：git log -p
+より詳しく見たい：git log --stat
+
+ブランチ
+現在のブランチなど確認：git status
+作業ブランチ変更：git checkout ブランチ名
+ブランチ作成：git branch ブランチ名
+ブランチの反映：git push origin ブランチ名
+ブランチを作って移動：git checkout -b ブランチ名
+ブランチを削除：git branch -d ブランチ名
+ブランチ一覧の表示：git branch,git branch -a
+
+レポジトリの複製（初期でよくやる）
+現在のディレクトリを作業に指定：git init
+複製：git clone git@アドレス名
+リモートリポジトリの確認：git remote -v
+リモートレポジトリの登録：git remote add origin git@~
+リモートレポジトリの削除：git remote rm origin
+
+ローカルリポジトリをリモートに同期
+同期：git fetch origin
+
+マージ
+今のブランチにマージ：git merge 'マージ対象'
+
+変更の確認
+どこを変更したのか確認：git diff
+ステージされたファイル確認：git diff --cached
+コミットした後の編集されたファイル確認：git diff -r ID名

@@ -1,0 +1,77 @@
+{% extends "account/base.html" %}
+{% block title %}ユーザ登録画面{% endblock %}
+{% block content %}
+
+{% load static %}
+{% load widget_tweaks %}
+<body>
+    <form action="" method="POST">
+        <div class="form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <div class="form-label">
+                    {{ field.label}}
+                </div>
+                <div class="form-input">
+                    {{ field | add_class:"form-box" }}
+                </div>
+                <div>
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+            <div>
+                <button type="submit" class="form-button">登録</button>
+            </div>
+            <div class="form-info">
+                <a href="{% url 'account:login' %}">登録済みの方</a>
+            </div>
+        </div>
+    </form>
+
+    <!-- <div id="login-form">
+
+        <form action="" method="POST">
+            タブ
+            <ul>
+                <li v-for="tab in tabNames">
+                    <a href="#" v-on:click.tab="onclick(tab)">${ tabs[tab] }</a>
+                </li>
+            </ul>
+
+            <div>
+                {{ form }}
+            </div> 
+
+            タブコンテンツ
+            <div class="form">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    <div v-if="labels.includes(field.label)">
+                        <div class="form-label">
+                            {{ field.label }}
+                        </div>
+                        <div class="form-input">
+                            {{ field | add_class:"form-box" }}
+                        </div>
+                        <div>
+                            {{ field.errors }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div>
+                    <button type="submit" class="form-button">登録</button>
+                </div>
+                <div class="form-info">
+                    <a href="{% url 'account:login' %}">登録済みの方</a>
+                </div>
+            </div>
+
+        </form>
+    </div> -->
+
+    <script src="{% static '/account/js/user_create.js' %}"></script>
+
+</body>
+{% endblock %}

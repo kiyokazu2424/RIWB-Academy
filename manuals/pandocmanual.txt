@@ -1,0 +1,3 @@
+pandocはさまざまな文書形式を互いに変換できるオープンソースツール
+pandocをダウンロードした後はコマンドから以下を打つ
+pandoc input.txt -o output.html

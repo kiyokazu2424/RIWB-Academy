@@ -1,0 +1,26 @@
+<!doctype html>
+{% extends "account/base.html" %}
+{% block title %}ユーザー情報変更{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<form action="" method="POST">
+  <!-- csrf対策とエラー表示 -->
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <table class="table">
+      <tbody>
+          {% for field in form %}
+              <tr>
+                  <th><label for="{{ field.id_for_label }}">{{ field.label }}</label></th>
+                  <td>{{ field }} {{ field.errors }}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  <button type="submit" class="" >ユーザ情報を更新</button>
+</form>
+
+{% endblock %}

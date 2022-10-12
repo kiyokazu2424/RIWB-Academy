@@ -1,0 +1,14 @@
+{% extends "account/base.html" %}
+{% block title %}本登録完了{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<body>
+    <p>
+        本登録が完了しました。<br>
+        登録されたメールアドレスとパスワードでログインしてください。<br>
+        <a href="{% url 'account:login' %}">ログイン</a>
+    </p>
+</body>
+{% endblock %}

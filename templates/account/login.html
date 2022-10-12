@@ -1,0 +1,35 @@
+{% extends "account/base.html" %}
+{% block content %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+<body>
+    <form action="" method="POST">
+        <div class="form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <div class="form-label">
+                    {{ field.label}}
+                </div>
+                <div class="form-input">
+                    {{ field | add_class:"form-box" }}
+                </div>
+                <div>
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+            <div>
+                <button type="submit" class="form-button">ログイン</button>
+            </div>
+            <div class="form-info">
+                <a href="{% url 'account:user_create' %}">新規登録がまだの方</a>
+            </div>
+            <div class="form-info">
+                <a href="{% url 'account:password_reset' %}">パスワードを忘れた方</a>
+            </div>
+        </div>
+    </form>
+</body>
+{% endblock %}

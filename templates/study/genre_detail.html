@@ -1,0 +1,76 @@
+{% extends "study/base.html" %}
+
+{% block title %}動画一覧{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<body>
+  <div>
+
+    <div>
+        <h1>動画一覧（{{genre.name}}）</h1>
+    </div>
+
+    <div class="genre-list">
+        <!-- 外部キー参照による教材の一覧取得 -->
+        <!-- {% for text in genre.texts.all %}
+            <div class="genre-flex">
+                
+                <div class="genre-img">
+                    <img src="{{ text.thumbnail.url }}">
+                </div>
+
+                <div class="genre-exp">
+                    <div class="genre-name">
+                        <a href="{% url 'study:text_detail' text.pk %}">{{ text.title }}</a>
+                    </div>
+                    <div class="genre-text">
+                        <p>{{ text.description }}</p>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %} -->
+
+        {% for text in text_list %}
+        <div class="genre-img">
+            <img src="{{ text.thumbnail.url }}">
+        </div>
+
+        <div class="genre-exp">
+            <div class="genre-name">
+                <a href="{% url 'study:text_detail' text.pk %}">{{ text.title }}</a>
+            </div>
+            <div class="genre-text">
+                <p>{{ text.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- ページング処理の部分 -->
+    <!-- 「前へ」の部分 -->
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">前へ</a>
+    {% endif %}
+
+    <!-- 数字部分 -->
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+        <span>{{ num }}</span>
+    {% else %}
+        <a href="?page={{ num }}">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+
+    <!-- 「次へ」 の部分 -->
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">次へ</a>
+    {% endif %}
+
+  </div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "study/base.html" %}
+
+{% block title %}動画一覧{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<body>
+  <div>
+
+    <div>
+        <h1>スレッドタイトル：{{thread.title}}</h1>
+    </div>
+
+    <div class="reply-list">
+        {% for reply in thread.replies.all %}
+            <p>{{ reply.reply }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+      <p>スレッドに対する返信</p>
+
+      <div>
+        <form action="{% url 'study:reply_create' thread.pk %}" method="post">
+          {% csrf_token %}
+          {{ reply_form }}
+          <div>
+            <button type="submit">返信</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div>
+      <p>動画にもどる</p>
+    </div>
+
+  </div>
+
+</body>
+{% endblock %}

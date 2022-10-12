@@ -1,0 +1,42 @@
+localhostのmysqlサーバに接続する
+mysql -u ユーザー名 -p
+→パスワード入力が求められる
+
+外部のmysqlサーバに接続する
+mysql -u ユーザー名 -p -h host名 -P ポスト番号
+リモートのRDSなら mysql -u Riwb -p -h academy-database.crydgdidi19c.ap-northeast-1.rds.amazonaws.com
+
+ログアウト
+\q
+quit
+exit;
+
+ヘルプ
+help;
+
+ユーザーのパスワード変更
+set password = password('変更後パス');
+
+データベース一覧表示
+show databases;
+
+データベースの追加
+create database データベース名;
+
+使用データベースの指定(これをしてないとどのデータベース使うの？って言われる)
+use データベース名
+
+テーブルの一覧表示
+show tables;
+詳細表示
+show table status;
+テーブルのカラムを表示
+show columns from テーブル名;
+テーブルのレコードを確認
+select * from テーブル名;
+
+テーブルの削除
+drop table テーブル名
+
+バージョンの確認
+select version();

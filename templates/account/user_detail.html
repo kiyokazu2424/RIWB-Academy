@@ -1,0 +1,40 @@
+<!doctype html>
+{% extends "account/base.html" %}
+{% block title %}本登録完了{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<div class="title">
+    <p>ユーザー情報</p>
+</div>
+
+<div class="user-table">
+    <table class="stripe-table">
+        <tbody>
+            <tr>
+                <th>登録メールアドレス</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>姓</th>
+                <td>{{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <th>名</th>
+                <td>{{ user.first_name }}</td>
+            </tr>
+            <tr>
+                <th>職業</th>
+                <td>{{ user.get_job_display }}</td>
+                <!-- {% for num,job in job_lis %}
+                    {% if num == user.job %}
+                        <td>{{ job }}</td>
+                    {% endif %}
+                {% endfor %} -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

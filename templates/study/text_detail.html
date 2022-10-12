@@ -1,0 +1,114 @@
+{% extends "study/base.html" %}
+
+{% block title %}動画内容{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<body>
+  <div>
+    <h1>{{ text.title }}</h1>
+  </div>
+
+  <div>
+
+    <div class="Video">
+      <video controls width="800" >
+      <source src="{{ text.text.url }}" type="video/mp4"> 
+      </video>
+    </div>
+
+    <div class="comment">
+
+      <div class="comment_form">
+        <div>
+          <p>コメントする</p>
+        </div>
+  
+        <div>
+          <form action="{% url 'study:comment_create' text.pk %}" method="post">
+            {% csrf_token %}
+            {{ comment_form }}
+
+            {% if user.email == 'RIWBtest9@gmail.com' %}
+            <div>
+              <button disabled type="submit">コメント完了</button>
+            </div>
+            {% else %}
+            <div>
+              <button type="submit">コメント完了</button>
+            </div>
+            {% endif %}
+
+          </form>
+        </div>
+      </div>
+
+      <div class="comment_list">
+        <div>
+          <p>コメント数:{{ comment_num }}</p>
+          {% for comment in text.comments.all %}
+              <div>
+                <p>{{ comment.user_id.last_name }} {{ comment.user_id.first_name }}</p>
+                <p>{{ comment.upload_date | date:"Y.m.n(f)"}}</p>
+              </div>
+              <div>
+                <p>{{ comment.comment }}</p>
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="thread">
+
+      <div class="thread_form">
+        <div>
+          <p>スレッドを作る</p>
+        </div>
+  
+        <div>
+          <form action="{% url 'study:thread_create' text.pk %}" method="post">
+            {% csrf_token %}
+            {{ thread_form }}
+
+            {% if user.email == 'RIWBtest9@gmail.com' %}
+            <div>
+              <button disabled type="submit">作成</button>
+            </div>
+            {% else %}
+            <div>
+              <button type="submit">作成</button>
+            </div>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+
+      <div class="thread_list">
+        <div>
+          <p>スレッド件数:{{ thread_num }}件</p>
+          {% for thread in text.threads.all %}
+              <div>
+                <p>{{ comment.user_id.last_name }} {{ comment.user_id.first_name }}</p>
+                <p>{{ thread.upload_date | date:"Y.m.n(f)"}}</p>
+              </div>
+              <div>
+                <a href="{% url 'study:thread_detail' thread.pk %}">{{ thread.title }}</a>
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+{% endblock %}

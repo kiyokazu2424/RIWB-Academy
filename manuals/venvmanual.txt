@@ -1,0 +1,30 @@
+仮想環境を作りたいプロジェクト直下でコマンドにより仮想環境名を決め作成
+$ cd [project dir]
+$ python3 -m venv [newenvname]
+venvはpython3用の仮想環境であり、python2用のvirtualenvの後継
+実行したpythonのバージョンにより、作成した環境のpythonバージョンも決まるらしい
+
+作成した環境に入る(for linux,mac)
+$ source [newenvname]/bin/activate
+作成した環境に入る(win)
+$ .\[newenvname]\Scripts\activate
+
+環境におけるパッケージのインストール
+([newenvname])$ pip install [package name]
+環境にインストールされているパッケージの確認
+([newenvname])$ pip freeze
+[package name1]==x.x.x
+[package name2]==x.x.x
+・
+・
+プロジェクト直下にあるrequirements.txtファイルに必要パッケージを書き込んでおいて、以下のコマンドでまとめてインストール
+pip install -r requirement.txt
+
+環境から抜け出す
+([newenvname])$ deactivate
+
+インストールのバージョン指定
+pip install django==3.2
+
+プロジェクト名:環境名
+app_kiyo:venv

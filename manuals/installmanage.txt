@@ -1,0 +1,12 @@
+djangoのみインスト、LTSの3.2を指定、pythonは3.9.13
+asgiref==3.5.2
+Django==3.2
+pytz==2022.2.1
+sqlparse==0.4.2
+
+mysqlドライバーをインストール
+asgiref==3.5.2
+Django==3.2
+mysqlclient==2.1.1
+pytz==2022.2.1
+sqlparse==0.4.2

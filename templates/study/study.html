@@ -1,0 +1,44 @@
+{% extends "study/base.html" %}
+
+{% block title %}動画学習画面{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<body>
+    <div>
+        <div>
+            <h1>動画ジャンル一覧</h1>
+        </div>
+
+        <div class="genre-list">
+            {% for genre in genre_data %}
+                <div class="genre-flex">
+
+                    <div class="genre-img">
+                        <img src="{{ genre.thumbnail.url }}">
+                    </div>
+
+                    <div class="genre-exp">
+                        <div class="genre-name">
+                            <a href="{% url 'study:genre_detail' genre.pk %}">{{ genre.name }}</a>
+                        </div>
+                        <div class="genre-text">
+                            <p>{{ genre.description }}</p>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+
+        <div>
+            {% if user.is_superuser %}
+                <a href="{% url 'study:genre_create' %}">ジャンルを登録する</a><br>
+                <a href="{% url 'study:text_create' %}">教材を登録する</a>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+{% endblock %}

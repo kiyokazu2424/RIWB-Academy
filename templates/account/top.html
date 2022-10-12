@@ -1,0 +1,123 @@
+{% extends "account/base.html" %}
+
+{% block title %}RIWB Data Academy | トップ{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<body>
+    <div class="gradation">
+        <div class="sec1">
+            <div>
+                <h1 class="top-title">大学在学中にスキルアップを目指そう！</h1>
+            </div>
+    
+            <div>
+                <p class="top-sub-title">RIWB Academyでは九大生の作ったオリジナル動画で学習できます。<br>
+                    学生間での質問や情報共有チャットなどで学習効果をアップ。<br>
+                    企業と繋がることができ、インターンや企業の情報に触れることができます。
+                </p>
+            </div>
+
+            <div>
+                <div>
+                    <p class="recommended-students">こんな学生におすすめ！</p>
+                </div>
+                <div>
+                    <ul>
+                        <li class="top-sub-title">・IT系の教養や技術を獲得したい</li>
+                        <li class="top-sub-title">・九大生の知り合いや繋がりが欲しい</li>
+                        <li class="top-sub-title">・就職や自己分析などの情報にアクセスしたい</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+
+                    <img class="top_message_back_img" src="{% static 'account/img/Server-bro.svg' %}">
+            </div>
+        </div>
+    
+        <div class="sec2">
+            <div>
+                <h1 class="top-title">RIWB Academyでできること</h1>
+            </div>
+    
+            <div>
+                <div class="exp">
+                    <div class="exp-img">
+                        <img src="{% static 'account/img/Press pause-bro.svg' %}">
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-title">
+                            <p>学習動画を視聴</p>
+                        </div>
+                        <div class="exp-text">
+                            <p>オリジナルのデータサイエンスや<br>
+                                webアプリ開発についての動画を見ることができます。<br>
+                                実際にツールを用いながら<br>
+                                学習することで実践的スキルを獲得！！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="exp">
+                    <div class="exp-item">
+                        <div class="exp-title">
+                            <p>学生間の情報共有</p>
+                        </div>
+                        <div class="exp-text">
+                            <p>各動画にはコメントが付けられるため、<br>
+                                動画について深く考えることができます。<br>
+                                動画で沸いた疑問はスレッドで議論し解消することができます。<br>
+                                他の学習者と勉強についての情報共有をすることで、<br>
+                                今までとは違うより良い学習が<br>
+                                可能になるかもしれません。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="exp-img">
+                        <img src="{% static 'account/img/Discussion-bro.svg' %}">
+                    </div>
+                </div>
+    
+                <div class="exp">
+                    <div class="exp-img">
+                        <img src="{% static 'account/img/Face to face-bro.svg' %}">
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-title">
+                            <p>インターンや就活の情報取得</p>
+                        </div>
+                        <div class="exp-text">
+                            <p>学習意欲のある学生を求める企業の<br>
+                                インターンへ行ったり、エントリーを行うことができます。<br>
+                                他の学生との情報共有により、<br>
+                                より広く就職のことを知ることができます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="sec3">
+        <div>
+            <h1 class="top-title">お試し動画</h1>
+            <p class="video-explain">
+                （このような動画とコメントによる学習が可能です）
+            </p>
+        </div>
+        <div class="trial-video">
+            <video controls src="{% static 'account/video/ds_lec_01-1_データサイエンス概論_データサイエンスとは.mp4' %}" poster="{% static 'account/img/trial_video_thumb.png' %}"></video>
+        </div>
+    </div>
+
+    <script src="{% static 'account/js/top.js' %}"></script>
+
+</body>
+
+{% endblock %}
