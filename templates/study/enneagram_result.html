@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% extends "study/base.html" %}
+{% block title %}エニアグラム診断画面{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+<ul class="bread-list">
+    <li>Home</li>
+    <li>自己分析ツール</li>
+    <li>エニアグラム診断</li>
+    <li>エニアグラム診断画面</li>
+</ul>
+
+<div class="study-top">
+    <h1>エニアグラム診断結果</h1>
+</div>
+
+<div class="result-see">
+    <!-- <div>
+        <p>0%~20%:あなたはおそらく{{ topic.5 }}ではないでしょう</p>
+    </div>
+    <div>
+        <p>21%~40%:あなたはおそらくタイプ{{ topic.6 }}ではないでしょう</p>
+    </div>
+    <div>
+        <p>41%~60%:あなたはおそらくタイプ{{ topic.6 }}的なテーマを持っているか、タイプ{{ topic.6 }}の親を持っているでしょう</p>
+    </div>
+    <div>
+        <p>61%~80%:あなたはタイプ{{ topic.6 }}的要素を持っている可能性が高いでしょう</p>
+    </div>
+    <div>
+        <p>81%~100%:あなたはタイプ{{ topic.6 }}の可能性が高いでしょう。(しかし、タイプ{{ topic.6 }}的側面を見ているだけであり、別のタイプの可能性があります)</p>
+    </div>
+    <div>
+        <p>*あくまで自己診断のため、自己認識が不十分な場合、正確性に欠けるかもしれません。<br>
+            また、定期的に診断を行い自分の傾向を把握することをお勧めしています。
+        </p>
+    </div> -->
+
+    <p>診断結果の確認方法</p>
+    <p>0%~20%:あなたはおそらく遊離型(タイプ4・5・9)ではないでしょう</p>
+    <p>21%~40%:あなたはおそらくタイプそのタイプではないでしょう</p>
+    <p>41%~60%:あなたはおそらくそのタイプ的なテーマを持っているか、そのタイプの親を持っているでしょう</p>
+    <p>61%~80%:あなたはそのタイプ的要素を持っている可能性が高いでしょう</p>
+    <p>81%~100%:あなたはそのタイプの可能性が高いでしょう。(しかし、そのタイプ的側面を見ているだけであり、別のタイプの可能性があります)</p>
+    <p>*あくまで自己診断のため、自己認識が不十分な場合、正確性に欠けるかもしれません。<br>
+        また、定期的に診断を行い自分の傾向を把握することをお勧めしています。
+    </p>
+
+</div>
+
+<div class="bar-graph-wrap">
+    {% for result in result_data %}
+    <div class="graph" style="width: {{ result }}%;">
+        <span class="name">タイプ{{ forloop.counter }}</span>
+        <span class="number">{{ result }}</span>
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- <script src="{% static 'study/js/tab.js' %}"></script> -->
+{% endblock %}

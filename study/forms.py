@@ -14,7 +14,8 @@ class GenreForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = field.label 
+            field.widget.attrs['class'] = 'form-input'
 
 class TextForm(forms.ModelForm):
     """教材フォーム（スーパーユーザーのみ利用可能）"""
@@ -29,7 +30,8 @@ class TextForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = field.label 
+            field.widget.attrs['class'] = 'form-input'
 
 class CommentForm(forms.ModelForm):
     """コメントフォーム（各教材の詳細ページで利用可能）"""
@@ -42,20 +44,22 @@ class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = field.label 
+            field.widget.attrs['class'] = 'form-input-comment'
 
 class ThreadForm(forms.ModelForm):
     """スレッドフォーム（各教材の詳細ページで利用可能）"""
     class Meta:
         model = Thread
         fields = ('title','message')
-        labels = {'title':'スレッドのタイトル','message':'スレッドの内容'}
+        labels = {'title':'スレッド名','message':'スレッドの内容'}
 
     # フォームを綺麗にするための記載
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = field.label 
+            field.widget.attrs['class'] = 'form-input-thread'
 
 class ReplyForm(forms.ModelForm):
     """リプライフォーム（各スレッドの詳細ページで利用可能）"""
@@ -68,4 +72,4 @@ class ReplyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['class'] = 'form-input-comment'

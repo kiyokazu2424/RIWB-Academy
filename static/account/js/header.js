@@ -35,8 +35,6 @@ window.addEventListener('DOMContentLoaded',function() {
       user_menu.classList.remove('view')
     }, 2000);
 
-
-    
   })
 
 })

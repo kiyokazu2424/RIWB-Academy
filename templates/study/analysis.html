@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends "study/base.html" %}
+{% block title %}自己分析ツール画面{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<div>
+  <ul class="bread-list">
+      <li>Home</li>
+      <li>自己分析ツール</li>
+  </ul>
+
+  <div class="study-top">
+    <h1>自己分析ツール</h1>
+  </div>
+
+  <div class="text-list">
+    <div class="item-list">
+
+      <div class="item-img">
+          <img src="{% static 'study/img/enneagram.png' %}">
+      </div>
+
+      <div class="item-info">
+          <a class="item-title" href="{% url 'study:enneagram' %}">エニアグラム</a>
+          <p class="item-exp">エニアグラムとは、9つのタイプ別に個人の性格を診断するシステムです。
+            今や、エニアグラムは心理学の領域を超え、ビジネスの分野でも積極的に活用されています。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-list">
+    <div class="item-list">
+
+      <div class="item-img">
+          <img src="{% static 'study/img/16personalities.png' %}">
+      </div>
+
+      <div class="item-info">
+          <a class="item-title" href="#">16パーソナリティーズ</a>
+          <p class="item-exp">16パーソナリティーズとは人間の性格を16のカテゴリーに分類したものです。
+            行動や思考をマインド、エネルギー、ネイチャー、タクティクスの4つの指標をもとに分類します。</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

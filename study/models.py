@@ -1,14 +1,25 @@
-from email.policy import default
+# from email.policy import default
 from django.db import models
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
+"""他アプリからモデルをインポート"""
 from account.models import User
+
+"""アップロードファイル(動画)の制限設定"""
+# 20MB
+MAX_SIZE    = 20 * 1000 * 1000
+def validate_max_size(value):
+    "ファイルの大きさの判定関数"
+    if value.size > MAX_SIZE:
+        raise ValidationError( "ファイルサイズが上限(" + str(MAX_SIZE/1000000) + "MB)を超えています。送信されたファイルサイズ: " + str(value.size/1000000) + "MB")
+    else:
+        print("問題なし")
 
 # idは自動で作成されるがあえて明記
 # FileField,ImageFieldのupload_toはMEDIA_URLから見たもの
-
 class Genre(models.Model):
-  """教材のジャンル"""
+  "教材のジャンル"
   # id（主キー）
   id = models.AutoField(primary_key=True)
   # ジャンル名
@@ -22,7 +33,7 @@ class Genre(models.Model):
   upload_date = models.DateTimeField(default=timezone.now)
 
 class Text(models.Model):
-  """動画など教材"""
+  "動画など教材"
   # id（主キー）
   id = models.AutoField(primary_key=True)
   # コンテンツ名
@@ -34,14 +45,14 @@ class Text(models.Model):
       validators=[FileExtensionValidator(allowed_extensions=['png','jpeg'])],null=True, blank=True)
   # 教材ファイル
   text = models.FileField(upload_to='text/textfile',
-      validators=[FileExtensionValidator(allowed_extensions=['MOV','MPEG4','mp4'])],default='')
+      validators=[FileExtensionValidator(allowed_extensions=['MOV','MPEG4','mp4']),validate_max_size],default='')
   # アップロード日
   upload_date = models.DateTimeField(default=timezone.now)
   # ジャンルid、所属するジャンルが消えた時一緒に消える、textsという名前で逆参照できるようにする
   genre_id = models.ForeignKey(Genre, on_delete=models.CASCADE,related_name="texts",to_field="id")
 
 class Comment(models.Model):
-  """各教材に対するコメント"""
+  "各教材に対するコメント"
   # id（主キー）
   id = models.AutoField(primary_key=True)
   # コメント文
@@ -54,7 +65,7 @@ class Comment(models.Model):
   upload_date = models.DateTimeField(default=timezone.now)
 
 class Thread(models.Model):
-  """各教材に対するスレッド"""
+  "各教材に対するスレッド"
   # id（主キー）
   id = models.AutoField(primary_key=True)
   # スレッドタイトル
@@ -69,7 +80,7 @@ class Thread(models.Model):
   upload_date = models.DateTimeField(default=timezone.now)
 
 class Reply(models.Model):
-  """各スレッドに対する返信"""
+  "各スレッドに対する返信"
   # id（主キー）
   id = models.AutoField(primary_key=True)
   # 返信文
@@ -80,3 +91,4 @@ class Reply(models.Model):
   user_id = models.ForeignKey(User, on_delete=models.CASCADE,related_name="replies",to_field="id",default='')
   # 返信日
   upload_date = models.DateTimeField(default=timezone.now)
+  # upload_date = models.DateTimeField(auto_now_add=True)

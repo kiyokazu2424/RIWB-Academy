@@ -56,10 +56,10 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'academy',
+        'NAME': 'academy_free_database',
         'USER': 'Riwb',
         'PASSWORD': 'Riwb2424',
-        'HOST':'academy-database.crydgdidi19c.ap-northeast-1.rds.amazonaws.com',
+        'HOST':'academy-free-database.crydgdidi19c.ap-northeast-1.rds.amazonaws.com',
         'PORT':'3306',
     }
 }

@@ -1,43 +1,65 @@
+<!DOCTYPE html>
 {% extends "study/base.html" %}
-
-{% block title %}動画一覧{% endblock %}
+{% block title %}スレッド画面{% endblock %}
 
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
 
-<body>
-  <div>
+<div>
 
-    <div>
-        <h1>スレッドタイトル：{{thread.title}}</h1>
-    </div>
+  <ul class="bread-list">
+      <li>Home</li>
+      <li>データサイエンス</li>
+      <li>{{ thread.title }}</li>
+  </ul>
 
-    <div class="reply-list">
-        {% for reply in thread.replies.all %}
-            <p>{{ reply.reply }}</p>
-        {% endfor %}
-    </div>
+  <div class="study-top">
+      <h1>スレッドタイトル：{{thread.title}}</h1>
+  </div>
 
-    <div>
-      <p>スレッドに対する返信</p>
+  <div class="topic">
+    <p>スレッド内容：{{ thread.message }}</p>
+  </div>
 
-      <div>
-        <form action="{% url 'study:reply_create' thread.pk %}" method="post">
-          {% csrf_token %}
-          {{ reply_form }}
-          <div>
-            <button type="submit">返信</button>
-          </div>
-        </form>
+  <div class="reply-list">
+    {% for reply in thread.replies.all %}
+    <div class="comment-entire">
+      <div class="comment-info">
+        <p>
+          {{ reply.upload_date | date:'Y/m/d H:i' }}　
+          {{ reply.user_id.last_name }} {{ reply.user_id.first_name }}
+        </p>
+      </div>
+      <div class="comment-text">
+        <p>{{ reply.reply }}</p>
       </div>
     </div>
+    <hr>
+    {% endfor %}
+  </div>
 
-    <div>
-      <p>動画にもどる</p>
-    </div>
+  <div class="reply-form-wrapper">
+    <form action="{% url 'study:reply_create' thread.pk %}" method="post">
+      {% csrf_token %}
+      <div class="comment-form">
+        {{ reply_form.reply }}
+
+        {% if user.email == 'RIWBtest9@gmail.com' %}
+        <button disabled type="submit" class="comment-button">返信
+        {% else %}
+        <button type="submit" class="comment-button">返信
+        {% endif %}
+          <img src="{% static 'account/img/send-icon.png' %}">
+        </button>
+      </div>
+    </form>
 
   </div>
 
-</body>
+  <!-- <div>
+    <p>動画にもどる</p>
+  </div> -->
+
+</div>
 {% endblock %}

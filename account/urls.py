@@ -6,6 +6,8 @@ app_name = 'account'
 urlpatterns = [
     # ルートパス、トップページ
     path("", views.Top.as_view(), name="top"),
+    # 料金案内ページ
+    path("acount/about_fee", views.Fee.as_view(), name="fee"),
     # ログインページ
     path("account/login/", views.Login.as_view(), name="login"),
     # ログアウトページ

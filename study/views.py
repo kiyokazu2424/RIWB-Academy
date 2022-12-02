@@ -13,7 +13,22 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.urls import reverse_lazy
 """その他のimport"""
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import os,csv
 
+"""アンケートに使用するcsvファイルの読み込み"""
+def read_csv(file_name):
+    "エニアグラムのアンケート"
+    # 開発環境
+    csv_file = open(f"./static/study/csv/{file_name}", "r", encoding="UTF-8", errors="", newline="")
+    # 本番環境
+    # csv_file = open(f"/home/ec2-user/Django//riwb-academy/static/study/csv/{file_name}", "r", encoding="UTF-8", errors="", newline="")
+    # リスト形式で読み込む
+    csv_data = csv.reader(csv_file, delimiter=",", doublequote=True, lineterminator="\r\n", quotechar='"', skipinitialspace=True)
+    header = next(csv_data)
+    data_lis = []
+    for row in csv_data:
+        data_lis.append(row)
+    return data_lis
 
 """Mixin"""
 class SuperuserRequiredMixin(UserPassesTestMixin):
@@ -52,12 +67,6 @@ class GenreCreate(SuperuserRequiredMixin,CreateView):
         form.save()
         return redirect('study:study')
 
-# class GenreDetail(LoginRequiredMixin,DetailView):
-#     "ジャンルの詳細（教材一覧）ページ"
-#     template_name = 'study/genre_detail.html'
-#     model = Genre
-
-
 class GenreDetail(LoginRequiredMixin,DetailView):
     "ジャンルの詳細（教材一覧）ページ"
     template_name = 'study/genre_detail.html'
@@ -71,7 +80,7 @@ class GenreDetail(LoginRequiredMixin,DetailView):
         queryset = genre_object.texts.all()
         # ページネーションの処理
         # 一ページあたりのオブジェクト数
-        count = 1
+        count = 3
         paginator = Paginator(queryset, count)
         # 現在ブラウザに表示しているページ数の取得処理、初回はオブジェクトがある時Noneでtry中の二つ目、ない時emptyなので三つ目が発動
         page = request.GET.get('page')
@@ -111,11 +120,12 @@ class TextDetail(LoginRequiredMixin,DetailView):
     model = Text
 
     def get_context_data(self, **kwargs):
-        "教材詳細ページにおいてコメントも作成できるための処理"
+        "教材詳細ページにおいてコメント、スレッドも作成できるための処理"
         context = super().get_context_data(**kwargs)
         # テンプレートにコメント作成フォーム、スレッド作成フォームを渡す
         context['comment_form'] = CommentForm
         context['thread_form'] = ThreadForm
+
         # 教材に紐づいたコメント、スレッド数の表示準備、初めに表示中の表示中の教材オブジェクトを取得
         text_object = Text.objects.get(pk=self.kwargs.get('pk'))
         # 外部キーの件数参照はrelated_nameを指定している時その名前でできる、指定してない場合comment_setが使える
@@ -123,6 +133,7 @@ class TextDetail(LoginRequiredMixin,DetailView):
         comment_num = len(comments)
         threads = text_object.threads.all()
         thread_num = len(threads)
+
         # コンテキストに追加
         context['comment_num'] = comment_num
         context['thread_num'] = thread_num
@@ -204,3 +215,69 @@ class ReplyCreate(CreateView):
         comment.save()
 
         return redirect('study:thread_detail', pk=thread_pk)
+
+class Analysis(TemplateView):
+    "自己分析ツール一覧ページ"
+    template_name = 'study/analysis.html'
+
+class Enneagram(TemplateView):
+    "エニアグラム診断ページ"
+    template_name = 'study/enneagram.html'
+
+    def get_context_data(self, **kwargs):
+        "アンケートを作るための準備"
+        context = super().get_context_data(**kwargs)
+        # エニアグラムの質問と対応するタイプのリスト取得
+        enneagram_data = read_csv('enneagram_question.csv')
+        # 質問だけにする
+        questions = []
+        for lis in enneagram_data:
+            questions.append(lis[0])
+
+        context['questions'] = questions
+
+        return context
+
+    def post(self, request, *args, **kwargs):
+        "回答結果をもとに結果画面表示を準備"
+        # エニアグラムの質問と対応するタイプのリスト取得
+        enneagram_data = read_csv('enneagram_question.csv')
+        enneagram_topic = read_csv('enneagram_topic.csv')
+        # 得られた回答の情報をまとめる
+        ans_data = []
+        for i in range(len(enneagram_data)):
+            ans_data.append(request.POST[str(i+1)])
+        # 得られた回答から結果を集計
+        result_data = [0,0,0,0,0,0,0,0,0]
+        for i,data in enumerate(ans_data):
+            result_data[int(enneagram_data[i][1])-1] += int(data)
+
+        context = super().get_context_data(**kwargs)
+        for i,data in enumerate(result_data):
+            data *= 4/3
+            data = round(data)
+            result_data[i] = data
+
+        result_type = 0
+        result_type_data = 0
+
+        # その人のタイプを把握する、全て同じ度合いの時タイプ1とする
+        for i,data in enumerate(result_data):
+            if data > result_type_data:
+                result_type_data = data
+                result_type = i
+
+        topic = []
+        # topicのindex0~5にそのタイプの性質、6にそのタイプ番号を格納
+        for i in range(7):
+            topic.append(enneagram_topic[result_type][i])
+        topic.append(result_type)
+
+        context['result_data'] = result_data
+        context['topic'] = topic
+
+        return render(request,'study/enneagram_result.html',context)
+
+class EnneagramResult(TemplateView):
+    "エニアグラム診断結果ページ"
+    template_name = 'study/enneagram_result.html'

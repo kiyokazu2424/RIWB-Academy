@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 {% extends "account/base.html" %}
 {% block title %}ユーザー情報変更{% endblock %}
 
@@ -6,21 +6,33 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<form action="" method="POST">
-  <!-- csrf対策とエラー表示 -->
-  {% csrf_token %}
-  {{ form.non_field_errors }}
-  <table class="table">
-      <tbody>
-          {% for field in form %}
-              <tr>
-                  <th><label for="{{ field.id_for_label }}">{{ field.label }}</label></th>
-                  <td>{{ field }} {{ field.errors }}</td>
-              </tr>
-          {% endfor %}
-      </tbody>
-  </table>
-  <button type="submit" class="" >ユーザ情報を更新</button>
-</form>
+<ul class="bread-list">
+    <li>Home</li>
+    <li>ユーザー情報変更</li>
+</ul>
+
+<div class="page-info">
+    <p>ユーザー情報を変更できます。変更後、更新ボタンを押してください。更新すると、ユーザー情報閲覧ページに移動します。</p>
+</div>
+
+<div class="form-wrapper">
+    <form class="form-main" action="" method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {% for field in form %}
+            <div class="form-label">
+                {{ field.label}}
+            </div>
+            {{ field }}
+            <div class="form-error">
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        <div>
+            <button type="submit" class="form-button">更新</button>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

@@ -1,7 +1,13 @@
 /* 色参考ページ：https://www.tagindex.com/color/color_gradation.html */
 /* 全体的に青色を基調とし、テキストはフッター、ヘッダーはグレー、タイトル系は薄い黒、本体は黒 */
 /* riwbカラー00A29A,FFF100,595757 */
+
 /* 全ページ共通 */
+.all-wrap{
+  min-height: 100vh;
+  position: relative;
+}
+
 /* header */
 header{
   padding: 20px 20px;
@@ -24,14 +30,16 @@ header{
   display: flex;
   margin: 0;
 }
+
 .header-left ul{
   padding: 0px 0px 0px 15% ;
+
 }
 
 .header-right ul {
   padding: 0px 15% 0px 0px ;
-}
 
+}
 
 header img{
   width: 100%;
@@ -52,56 +60,34 @@ header span {
   transition: .5s;
 }
 
-/* a:hover span {
-  -webkit-transform: rotateX(360deg);
-  transform: rotateX(360deg);
-} */
-
 a:hover span{
   color: rgba(0,162,154,0.5);
-
-
 }
 
 /* ユーザーメニュー */
-.user-btn{
-
-}
-
 .user_menu{
   opacity: 0;
   pointer-events: none;
   width: 220px;
-  /* background-color: rgba(0,162,154,0.1); */
-  /* background-color: rgba(255,241,0,0.2); */
   background-color: rgba(255,255,255,0.4);
   position: absolute;
   top: 80px;
   right: 1%;
   transition: opacity 0.5s;
-
-  /* display: inline-block; */
-  /* display: flex;
-  justify-content: center; */
-
 }
 
 .user_menu.view {
   opacity: 1;
   pointer-events: all;
-
-  
 }
 
 .user_menu > ul{
-  /* width: 200px; */
   list-style: none;
   justify-content: center;
   padding: 1em;
   margin: 0;
   text-align: center;
-  /* align-items: center;
-  text-align: center; */
+  align-items: center;
 }
 
 .user_menu > ul > li.user_menu_item {
@@ -118,9 +104,19 @@ a:hover span{
   font-weight: 600;
 }
 
+/* bread-list */
+.bread-list {
+  display: flex;
+  padding: 20px;
+  list-style: none;
+}
+
+.bread-list li:not(:last-child):after {
+  content: " > ";
+  margin: 0 1rem;
+}
 
 /* body */
-
 body{
   /* display: flex; */
   padding: 0%;
@@ -137,14 +133,17 @@ body{
 /* footer */
 footer{
   width: 100%;
-  /* padding: 30px 4% 20px; */
+  margin-top: 100px;
   background-color: #eaffff;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(80px);
+}
+
+.footer-contents{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  bottom: 0px;
-  position: relative;
-  transform: translateY(80px);
 }
 
 footer a{
@@ -164,60 +163,437 @@ footer ul{
 footer .copyright {
   margin-left: 10%;
   font-size: 14px;
-
 }
 
-/* study中のもの */
-h1{
+/* form */
+.form-wrapper{
+  margin: 0 auto;
+  width: 80%;
+  border: 10px outset #88ccff;
+  padding-bottom: 20px;
+}
+
+.form-main{
+  width: 100%;
   text-align: center;
 }
 
-.genre-list{
-  width: 100%;
-  padding-top: 100px;
+.form-label{
+  margin-top: 20px;
 }
 
-.genre-flex{
+.form-input{
+  margin-top: 10px;
+  margin: 0 auto;
+  width: 40%;
+  height: 30px;
+  font-size: 20px;
+}
+
+.form-button{
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 20%;
+  margin-top: 40px;
+}
+
+.form-info{
+  margin-top: 10px;
+  text-align: center;
+}
+.form-info a{
+  text-decoration: none;
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,240,0,0.2);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* study */
+.study-top{
+  text-align: center;
+  margin: 40px auto;
+}
+
+/* リスト系(study,genre_detail)のデザイン全般 */
+.item-list{
+  width: 80%;
+  height: 300px;
+  margin: 60px auto;
+  display: flex;
+}
+
+.item-img {
+  width: 50%;
+}
+.item-img > img{
+  width: 100%;
+  height: 100%;
+}
+
+.item-info{
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.item-info a{
+  text-decoration: none;
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,241,0,0.2);
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.item-info .item-exp{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.paging{
+  text-align: center;
+  margin-left: 0 auto 60px;
+  padding-bottom: 100px;
+}
+.paging > a{
+  text-decoration: none;
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,241,0,0.2);
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* 現在のページ */
+.paging > span{
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgb(246, 234, 7);
+  padding: 10px 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* 教材ページ */
+.video-entire{
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.video-entire button{
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 16px;
+  width: 150px;
+}
+
+button img{
+  width: 20px;
+  height: 100%;
+}
+
+/* ビデオ列（ビデオとコメント） */
+.video-col{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.video-screen{
+  position: relative;
+  height: 600px;
+}
+
+video{
+  width: 100%;
+  height: 100%;
+  /* 親要素に対して中央に配置 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.reply-form-wrapper{
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.comment-form{
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding-bottom: 30px;
+  height: 40px;
+  margin: 40px auto 20px;
 }
 
-.genre-img{
-  width: 30%;
+.form-input-comment{
+  width: 80%;
+  height: 100%;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
 }
 
-.genre-list img{
+.form-input-thread{
   width: 100%;
-  height: 150px;
+  margin: 0 auto;
+  height: 100%;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
 }
 
-.genre-exp{
-
+.comment-button{
+  display: flex;
+  width: 20%;
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.genre-name a{
+.thread-button{
+  display: flex;
+  margin: 0 auto;
+  width: 20%;
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* コメントリスト系(コメント・スレッド・リプライ) */
+/* コメントリスト各種仕様 */
+.comment-list{
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+.comment-list hr{
+  border-top: 3px solid #eaffff;
+}
+
+.reply-list{
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+.reply-list > hr{
+  border-top: 3px solid #eaffff;
+}
+
+/* コメントリスト共通 */
+.comment-info{
+  margin-left: 10px;
+  height: 20%;
+  font-size: 10px;
+}
+
+.comment-text{
+  width: 100%;
+  height: 80%;
+  margin-left: 10px;
+}
+.comment-text a{
   text-decoration: none;
-  color: #4b4b4b;
-  padding: 20px;
-  font-size: 36px;
-  
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,241,0,0.2);
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.genre-text{
-  
+/* スレッド列 */
+.thread-col{
+  width: 20%;
+  margin: 0 auto;
 }
 
-
-.title{
+.thread-input{
+  display: none;
+  width: 80%;
   text-align: center;
-  color: #212529;;
-  font-size: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin: 0 auto;
 }
 
+.thread-field{
+  width: 90%;
+  height: 100%;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+
+.thread-form{
+  width: 100%;
+}
+
+.thread-btn{
+  margin-bottom: 20px;
+}
+
+/* 全体説明 */
+.video-exp > hr{
+  border-top: 3px solid #eaffff;
+}
+
+.text-exp{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.func-exp{
+  text-align: center;
+  padding-bottom: 100px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+/* スレッド詳細 */
+.topic{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+}
+
+/* エニアグラム質問 */
+.enneagram-exp{
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.question{
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.question > div:last-of-type{
+  margin-left: auto;
+}
+
+.question-text{
+  width: 60%;
+  font-size: 24px;
+}
+
+.question-form{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: auto;
+  margin-left: auto;
+}
+.question-form label{
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
+}
+.question-form input{
+  transform: scale(3.0);
+}
+
+.question-button{
+  margin-bottom: 40px;
+  text-align: center;
+}
+.question-button input{
+  margin-bottom: 50px;
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 20%;
+}
+
+/* エニアグラムグラフ */
+.bar-graph-wrap {
+  position: relative;
+  height: 600px;
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  /* overflow: hidden; */
+
+}
+.bar-graph-wrap .graph {
+  color: yellow;
+  background-color: rgba(0,162,154,1);
+  height: 50px;
+  left: 0;
+  border-radius: 0 4px 4px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  -webkit-animation: graphAnim 2.5s forwards;
+          animation: graphAnim 2.5s forwards;
+  
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.bar-graph-wrap .graph span {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 750px) {
+  .bar-graph-wrap .graph span {
+    font-size: 12px;
+  }
+}
+ 
+@-webkit-keyframes graphAnim {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+ 
+@keyframes graphAnim {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+/* slider */
 .slider-outer{
   width: 100%;
   height: 100%;
@@ -228,51 +604,9 @@ h1{
   width: 100%;
   height: 100%;
   position: absolute;
-
 }
 
 .slider-inner img{
   width: 100%;
   height: 600px;
-}
-
-
-.form{
-  text-align: center;
-}
-
-.form-label{
-  margin-top: 20px;
-}
-
-.form-input{
-  margin-top: 10px;
-}
-
-.form-box{
-  width: 30%;
-}
-
-.form-button{
-  width: 30%;
-  height: 40px;
-  margin-top: 30px;
-  border-radius: 15px;
-}
-
-.form-info{
-  margin-top: 10px;
-}
-
-form a{
-  text-decoration: none;
-  color: #4b4b4b;
-}
-
-.Video{
-  text-align: center;
-  position: relative;
-  margin: 0px auto;
-  width: 800px;
-  display: none;
 }

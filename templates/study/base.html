@@ -1,109 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
 <!-- {% load cdnstaticfiles %} -->
 
 <html lang="ja">
   <head>
-    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
-    <!-- <link rel="stylesheet" href="../../static/account/css/style.css"> -->
+    <link rel="stylesheet" href="{% static 'account/css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'study/css/study.css' %}">
     <link rel="icon" href="../../static/account/img/riwb_simbol.png">
     <!-- vueの導入 -->
     <!-- <script src="https://unpkg.com/vue@3"></script> -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
+
     <!-- タイトル(ブラウザ上のタブの表示)は各ページで決める -->
-    <title>{% block title %}{% endblock %}</title>  
+    <title>{% block title %}{% endblock %}</title>
   </head>
 
   <!-- コンテンツ内容は各ページで決める -->
   <body>
-    <header>
-        <div class="header-nav header-left">
-            <ul>
-                <li>
-                    <a href="https://riwb.org/"><span>riwbとは</span></a>
-                </li>
-                <li>
-                    <a href="https://riwb.org/"><span>料金について</span></a>
-                </li>
-                {% if user.is_authenticated %}
-                <li>
-                    <a href="{% url 'study:study' %}"><span>動画を見る</span></a>
-                </li>
-                {% else %}
-                <li>
-                    <a href="{% url 'account:login' %}"><span>動画を見る</span></a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-        <div>
-            <a href="{% url 'account:top' %}">
-                <img src="{% static 'account/img/riwb_simbol.png' %}" alt="ヘッダーロゴ画像">
-            </a>
-        </div>
-        {% if user.is_authenticated %}
-        <div class="header-nav header-right">
-            <ul>
-                <li>
-                    <a href="{% url 'account:top' %}"><span>トップへ</span></a>
-                </li>
-                <li>
-                    <a href="{% url 'account:logout' %}"><span>ログアウト</span></a>
-                </li>
-                <li id="user-menu">
-                    <a href="#" class="user_btn"><span>ユーザー設定</span></a>
+    <div class="all-wrap">
+        <header>
+            <div class="header-nav header-left">
+                <ul>
+                    <li>
+                        <a href="https://riwb.org/" target="_blank" rel="noopener noreferrer"><span>RIWBとは</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:fee' %}"><span>料金について</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'study:study' %}"><span>Home</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <a href="{% url 'account:top' %}">
+                    <img src="{% static 'account/img/riwb_simbol.png' %}" alt="ヘッダーロゴ画像">
+                </a>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="header-nav header-right">
+                <ul>
+                    <li>
+                        <a href="{% url 'account:top' %}"><span>Top</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:logout' %}"><span>ログアウト</span></a>
+                    </li>
+                    <li id="user-menu">
+                        <a href="#" class="user_btn"><span>ユーザー設定</span></a>
+        
+                    </li>
+                </ul>
+            </div>
+            {% else %}
+            <div class="header-nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'account:login' %}"><span>ログイン</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:user_create' %}"><span>新規登録</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:password_reset' %}"><span>パスワードを忘れた方</span></a>
+                    </li>
+                </ul>
+            </div>
+            {% endif %}
+        
+            <script src="{% static 'account/js/header.js' %}"></script>
+        </header>
+        <!-- ここの中に各コンテンツの内容が入る -->
+        <body>
+            <div class="main-content">
+                {% block content %}{% endblock %}
+            </div>
+        </body>
     
-                </li>
-            </ul>
-        </div>
-        {% else %}
-        <div class="header-nav">
-            <ul>
-                <li>
-                    <a href="{% url 'account:login' %}"><span>ログイン</span></a>
-                </li>
-                <li>
-                    <a href="{% url 'account:user_create' %}"><span>新規登録</span></a>
-                </li>
-                <li>
-                    <a href="{% url 'account:password_reset' %}"><span>パスワードを忘れた方</span></a>
-                </li>
-            </ul>
-        </div>
-        {% endif %}
+        <footer>
+            <div class="footer-contents">
+                <div>
+                    <ul>
+                        <li>
+                            <a href="">お問合せ</a>
+                        </li>
+                        <li>
+                            <a href="">利用規約</a>
+                        </li>
+                        <li>
+                            <a href="">プライバシーポリシー</a>
+                        </li>
+                        <li>
+                            <a href="">インターン</a>
+                        </li>
+                    </ul>
+                </div>
     
-        <script src="{% static 'account/js/header.js' %}"></script>
-    </header>
-    <!-- ここの中に各コンテンツの内容が入る -->
-    <div class="main-content">
-        {% block content %}{% endblock %}
+                <p class="copyright">Copyright © 2022 RIWB,Inc All Rights Reserved</p>
+            </div>
 
+        </footer>
     </div>
 
-    <footer>
-      
-      <div>
-          <ul>
-              <li>
-                  <a href="">お問合せ</a>
-              </li>
-              <li>
-                  <a href="">利用規約</a>
-              </li>
-              <li>
-                  <a href="">プライバシーポリシー</a>
-              </li>
-              <li>
-                  <a href="">インターン</a>
-              </li>
-          </ul>
-      </div>
-
-        <p class="copyright">Copyright © 2022 RIWB,Inc All Rights Reserved</p>
-
-    </footer>
     {% if user.is_authenticated %}
     <div class="user_menu">
         <ul>

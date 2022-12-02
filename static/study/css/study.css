@@ -1,0 +1,405 @@
+/* study */
+.study-top{
+  text-align: center;
+  margin: 40px auto;
+}
+
+/* リスト系(study,genre_detail)のデザイン全般 */
+.item-list{
+  width: 80%;
+  height: 300px;
+  margin: 60px auto;
+  display: flex;
+}
+
+.item-img {
+  width: 50%;
+}
+.item-img > img{
+  width: 100%;
+  height: 100%;
+}
+
+.item-info{
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.item-info a{
+  text-decoration: none;
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,241,0,0.2);
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.item-info .item-exp{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.paging{
+  text-align: center;
+  margin-left: 0 auto 60px;
+  padding-bottom: 100px;
+}
+.paging > a{
+  text-decoration: none;
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,241,0,0.2);
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* 現在のページ */
+.paging > span{
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgb(246, 234, 7);
+  padding: 10px 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* 教材ページ */
+.video-entire{
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.video-entire button{
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 16px;
+  width: 150px;
+}
+
+button img{
+  width: 20px;
+  height: 100%;
+}
+
+/* ビデオ列（ビデオとコメント） */
+.video-col{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.video-screen{
+  position: relative;
+  height: 600px;
+}
+
+video{
+  width: 100%;
+  height: 100%;
+  /* 親要素に対して中央に配置 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.reply-form-wrapper{
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.comment-form{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 40px;
+  margin: 40px auto 20px;
+}
+
+.form-input-comment{
+  width: 80%;
+  height: 100%;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+
+.form-input-thread{
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+
+.comment-button{
+  display: flex;
+  width: 20%;
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.thread-button{
+  display: flex;
+  margin: 0 auto;
+  width: 20%;
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* コメントリスト系(コメント・スレッド・リプライ) */
+/* コメントリスト各種仕様 */
+.comment-list{
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+.comment-list hr{
+  border-top: 3px solid #eaffff;
+}
+
+.reply-list{
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+.reply-list > hr{
+  border-top: 3px solid #eaffff;
+}
+
+/* コメントリスト共通 */
+.comment-info{
+  margin-left: 10px;
+  height: 20%;
+  font-size: 10px;
+}
+
+.comment-text{
+  width: 100%;
+  height: 80%;
+  margin-left: 10px;
+}
+.comment-text a{
+  text-decoration: none;
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,241,0,0.2);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* スレッド列 */
+.thread-col{
+  width: 20%;
+  margin: 0 auto;
+}
+
+.thread-input{
+  display: none;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.thread-field{
+  width: 90%;
+  height: 100%;
+  border: solid 2px rgba(0,162,154,1);
+  border-radius: 10px;
+}
+
+.thread-form{
+  width: 100%;
+}
+
+.thread-btn{
+  margin-bottom: 20px;
+}
+
+/* 全体説明 */
+.video-exp > hr{
+  border-top: 3px solid #eaffff;
+}
+
+.text-exp{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.func-exp{
+  text-align: center;
+  padding-bottom: 100px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+/* スレッド詳細 */
+.topic{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+}
+
+/* エニアグラム質問 */
+.enneagram-exp{
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.question{
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.question > div:last-of-type{
+  margin-left: auto;
+}
+
+.question-text{
+  width: 60%;
+  font-size: 24px;
+}
+
+.question-form{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: auto;
+  margin-left: auto;
+}
+.question-form label{
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
+}
+.question-form input{
+  transform: scale(3.0);
+}
+
+.question-button{
+  margin-bottom: 40px;
+  text-align: center;
+}
+.question-button input{
+  margin-bottom: 50px;
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 20%;
+}
+
+
+.result-see{
+  width: 80%;
+  margin: 0 auto;
+  font-size: 24px;
+  border: 10px outset #88ccff;
+
+}
+
+/* エニアグラムグラフ */
+.bar-graph-wrap {
+  position: relative;
+  height: 600px;
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  /* overflow: hidden; */
+
+}
+.bar-graph-wrap .graph {
+  color: yellow;
+  background-color: rgba(0,162,154,1);
+  height: 50px;
+  left: 0;
+  border-radius: 0 4px 4px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  -webkit-animation: graphAnim 2.5s forwards;
+          animation: graphAnim 2.5s forwards;
+  
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.bar-graph-wrap .graph span {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 750px) {
+  .bar-graph-wrap .graph span {
+    font-size: 12px;
+  }
+}
+ 
+@-webkit-keyframes graphAnim {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+ 
+@keyframes graphAnim {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+/* slider */
+.slider-outer{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider-inner{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.slider-inner img{
+  width: 100%;
+  height: 600px;
+}

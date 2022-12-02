@@ -1,0 +1,225 @@
+/* Top */
+/* sec1 */
+.gradation{
+  background: linear-gradient(#d5ffff, #008080);
+}
+
+.sec1{
+  width: 100%;
+  text-align: center;
+}
+
+h1{
+  color:#212529;
+}
+
+.button-round{
+  /* display指定で大きさ変更可能に */
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 30px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #1976d2;
+  color: white;
+}
+
+.sec1 {
+  position: relative;
+}
+
+.sec1 ul{
+  list-style: none;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.sec1 li{
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.sec1 .top-title {
+  padding-top:5%;
+  position: relative;
+  z-index: 1;
+}
+
+.sec1 .top-sub-title {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.sec1 .top_message_back_img{
+  object-fit: cover;
+  width: 60%;
+  height: 600px;
+  max-width: 700px;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  /* height: 500px; */
+}
+
+.recommended-students {
+  position: relative;
+  font-size: 28px;
+  font-weight: 600;
+  z-index: 1;
+  padding-top: 1em;
+  margin-bottom: 0px;
+}
+
+/* sec2 */
+.sec2{
+  width: 100%;
+}
+
+.sec2 .top-title {
+  padding-top:15%;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.exp{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 100px;
+}
+
+.exp-img{
+  width: 40%;
+  height: 400px;
+}
+
+.exp img{
+  width: 100%;
+  height: 100%;
+}
+
+.exp-item{
+  width: 40%;
+  height: 320px;
+  text-align: center;
+  border-radius: 50%;
+  background-color:white;
+  border:rgba(255,241,0,0.2) solid 4px;
+}
+
+.exp-title{
+  color:#212529;
+  font-size: 24px;
+  padding-top: 40px;
+  font-weight: 600;
+}
+
+.exp-text{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* sec3 */
+.sec3{
+  width: 100%;
+  background-color: #dcf8f8;
+}
+
+.sec3 .top-title {
+  margin: 0px auto;
+  padding-top:5%;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.sec3 .video-explain {
+  margin: 0px auto;
+  text-align: center;
+}
+
+.trial-video{
+  margin: 1% auto 0px auto;
+  text-align: center;
+}
+
+.trial-video video {
+  object-fit: cover;
+  width: 700px;
+  margin-bottom: 5%;
+}
+
+/* sec4 */
+.sec4{
+  width: 100%;
+  text-align: center;
+  height: 600px;
+}
+
+/* slider */
+.slider-outer{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slider-inner{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.slider-inner img{
+  width: 100%;
+  height: 600px;
+}
+
+/* サブページ系(エラー系、メール送信のステップ系) */
+.sub-page-text{
+  width: 80%;
+  margin: 60px auto 0;
+  font-size: 30px;
+}
+
+/* page-info */
+.page-info{
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* user_detail */
+.user-table{
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  text-align: center;
+}
+
+.stripe-table th{
+  border: solid 2px black;
+  padding: 20px;
+}
+
+.stripe-table td{
+  border: solid 2px black;
+  padding: 20px;
+}
+
+/* 奇数列 */
+.stripe-table tr:nth-child(odd) {
+  background-color:#bbfafa;
+}
+/* 偶数列 */
+.stripe-table tr:nth-child(even) {
+  border: solid 2px black;
+  padding: 20px;
+  background-color:#eaffff;
+}

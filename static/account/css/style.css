@@ -2,9 +2,15 @@
 /* 全体的に青色を基調とし、テキストはフッター、ヘッダーはグレー、タイトル系は薄い黒、本体は黒 */
 /* riwbカラー00A29A,FFF100,595757 */
 /* 全ページ共通 */
+.all-wrap{
+  min-height: 100vh;
+  position: relative;
+}
+
 /* header */
 header{
   padding: 20px 20px;
+  margin-bottom: 20px;
   background-color: #eaffff;
   display: flex;
   align-items: center;
@@ -24,17 +30,16 @@ header{
   display: flex;
   margin: 0;
 }
+
 .header-left ul{
   padding: 0px 0px 0px 15% ;
 
-  
 }
 
 .header-right ul {
   padding: 0px 15% 0px 0px ;
 
 }
-
 
 header img{
   width: 100%;
@@ -55,56 +60,35 @@ header span {
   transition: .5s;
 }
 
-/* a:hover span {
-  -webkit-transform: rotateX(360deg);
-  transform: rotateX(360deg);
-} */
-
 a:hover span{
   color: rgba(0,162,154,0.5);
-
-
 }
 
 /* ユーザーメニュー */
-.user-btn{
-
-}
-
 .user_menu{
   opacity: 0;
   pointer-events: none;
   width: 220px;
-  /* background-color: rgba(0,162,154,0.1); */
-  /* background-color: rgba(255,241,0,0.2); */
   background-color: rgba(255,255,255,0.4);
   position: absolute;
   top: 80px;
   right: 1%;
   transition: opacity 0.5s;
-
-  /* display: inline-block; */
-  /* display: flex;
-  justify-content: center; */
-
 }
 
 .user_menu.view {
   opacity: 1;
   pointer-events: all;
-
-  
 }
 
 .user_menu > ul{
-  /* width: 200px; */
   list-style: none;
   justify-content: center;
   padding: 1em;
   margin: 0;
   text-align: center;
-  /* align-items: center;
-  text-align: center; */
+  align-items: center;
+  text-align: center;
 }
 
 .user_menu > ul > li.user_menu_item {
@@ -121,11 +105,20 @@ a:hover span{
   font-weight: 600;
 }
 
+/* bread-list */
+.bread-list {
+  display: flex;
+  padding: 20px;
+  list-style: none;
+}
+
+.bread-list li:not(:last-child):after {
+  content: " > ";
+  margin: 0 1rem;
+}
 
 /* body */
-
 body{
-  /* display: flex; */
   padding: 0%;
   margin: 0%;
   width: 100%;
@@ -140,14 +133,16 @@ body{
 /* footer */
 footer{
   width: 100%;
-  /* padding: 30px 4% 20px; */
   background-color: #eaffff;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(80px);
+}
+
+.footer-contents{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  bottom: 0px;
-  position: relative;
-  transform: translateY(80px);
 }
 
 footer a{
@@ -168,6 +163,13 @@ footer .copyright {
   margin-left: 10%;
   font-size: 14px;
 
+}
+
+/* サブページ系(エラー系、メール送信のステップ系) */
+.sub-page-text{
+  width: 80%;
+  margin: 60px auto 0;
+  font-size: 30px;
 }
 
 /* top */
@@ -199,37 +201,6 @@ h1{
   color: white;
 }
 
-/* .button-round {
-  position: relative;
-  z-index: 2;
-  background-color: #fff;
-  border: 2px solid #333;
-  color: #333;
-  line-height: 48px;
-}
-.button-round::after {
-  疑似要素中はcontentを入れていないと反映されない
-  content:'';
-  top: 4px;
-  left: 4px;
-  width: 188px;
-  height: 42px;
-  border: 2px solid #333;
-  opacity: 0;
-}
-.button-round:hover::after {
-  opacity: 1;
-} */
-
-/* .title{
-  text-align: center;
-  color: #212529;;
-  font-size: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-
-} */
-
 .sec1 {
   position: relative;
 }
@@ -240,7 +211,6 @@ h1{
   position: relative;
   z-index: 1;
 }
-
 
 .sec1 li{
   font-size: 20px;
@@ -282,12 +252,9 @@ h1{
   margin-bottom: 0px;
 }
 
-
-
 /* sec2 */
 .sec2{
   width: 100%;
-  /* background: linear-gradient(#05fbff, #0044ff); */
 }
 
 .sec2 .top-title {
@@ -330,7 +297,6 @@ h1{
 }
 
 .exp-text{
-  /* padding-top: 20px; */
   font-weight: 600;
   font-size: 16px;
 }
@@ -353,6 +319,7 @@ h1{
   margin: 0px auto;
   text-align: center;
 }
+
 .trial-video{
   margin: 1% auto 0px auto;
   text-align: center;
@@ -376,31 +343,37 @@ h1{
   width: 100%;
   height: 100%;
   position: relative;
-  /* overflow: hidden; */
 }
 
 .slider-inner{
   width: 100%;
   height: 100%;
   position: absolute;
-
 }
 
 .slider-inner img{
   width: 100%;
   height: 600px;
-  /* object-fit: cover; */
 }
 
-/* .fade-enter-active, .fade-leave-active {
-  transition: all 1s ease;
+/* page-info */
+.page-info{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-} */
 
 /* form */
-.form{
+.form-wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border: 10px outset #88ccff;
+  padding-bottom: 20px;
+}
+
+.form-main{
+  width: 100%;
   text-align: center;
 }
 
@@ -410,30 +383,39 @@ h1{
 
 .form-input{
   margin-top: 10px;
-}
-
-.form-box{
-  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: 30px;
+  font-size: 20px;
 }
 
 .form-button{
-  width: 30%;
-  height: 40px;
-  margin-top: 30px;
-  border-radius: 15px;
+  background-color: #eaffff;
+  border-color: rgba(0,162,154,1);
+  color: rgba(0,162,154,1);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 20%;
+  margin-top: 40px;
 }
 
 .form-info{
   margin-top: 10px;
+  text-align: center;
 }
 
-form a{
+.form-info a{
   text-decoration: none;
-  color: #4b4b4b;
+  color: rgba(0,162,154,1);
+  text-shadow: 1.5px 1.5px rgba(255,240,0,0.2);
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* user_detail */
-
 .user-table{
   display: flex;
   justify-content: space-around;
@@ -451,13 +433,13 @@ form a{
   padding: 20px;
 }
 
+/* 奇数列 */
 .stripe-table tr:nth-child(odd) {
-  background-color:rgb(225, 227, 244);
+  background-color:#bbfafa;
 }
-
+/* 偶数列 */
 .stripe-table tr:nth-child(even) {
   border: solid 2px black;
   padding: 20px;
-  background-color:rgb(237, 238, 240);
+  background-color:#eaffff;
 }
-

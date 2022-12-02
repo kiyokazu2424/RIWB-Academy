@@ -4,10 +4,15 @@
 # セキュリティーの観点から、バージョン管理外のlocal_settingsにSECRET_KEY,DATABASE,メールなどの設定を記述しインポートしてある、本番でもEC2のマシーンに対して追加で作成する。
 # macの方でなぜかmysqlclientが使用できないバグがあるぽいのでpymysqlを使用してるがec2では使わない
 """他ファイルなどからのインポート"""
+
 import os
 #機密度の高い情報の設定、ログに必要なミドルウェアはlocal_settings、orig_logにまとめてここで使用
-from .local_settings import *
+#開発環境
+from .local_settings_local import *
+#本番環境
+# from .local_settings_ec2 import *
 from .orig_log import *
+# from .logs import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.(riwb_academy/のこと)
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # staticファイル設定
 STATIC_URL = '/static/'
 # 開発環境
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 # 本番環境の静的ファイルの集める先をproject直下に設定（manage.py collectstaticコマンドにより集めることができる）
 STATIC_ROOT = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -239,40 +244,40 @@ LOGOUT_REDIRECT_URL = "account:top"      # ログアウト後のリダイレク�
 # }
 
 # ec2ではhandlersのfileがうまくいかないため一旦除外した
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
 
-    'formatters': {
-        # 時間、レベル、httpメソッド、url、ステータスなどを羅列するフォーマット
-        'format1': {
-            'format': '%(asctime)s [%(levelname)s] %(process)d %(thread)d '
-                      '%(pathname)s:%(lineno)d %(message)s'
-        },
-    },
+#     'formatters': {
+#         # 時間、レベル、httpメソッド、url、ステータスなどを羅列するフォーマット
+#         'format1': {
+#             'format': '%(asctime)s [%(levelname)s] %(process)d %(thread)d '
+#                       '%(pathname)s:%(lineno)d %(message)s'
+#         },
+#     },
 
-    'handlers': {
-        # 出力先として、コンソール、ファイル、メールなどがある
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'format1',
-        },
-    },
+#     'handlers': {
+#         # 出力先として、コンソール、ファイル、メールなどがある
+#         'console': {
+#             'level': 'INFO',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'format1',
+#         },
+#     },
 
-    'loggers': {
-        # djangoのデフォルト、いじらない
-        'django': {
-            'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-        # このアプリ上での設定
-        'riwb_academy': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-    }
+    # 'loggers': {
+    #     # djangoのデフォルト、いじらない
+    #     'django': {
+    #         'handlers': ['console'],
+    #         'level': 'INFO',
+    #         'propagate': False,
+    #     },
+    #     # このアプリ上での設定
+    #     'riwb-academy': {
+    #         'handlers': ['console'],
+    #         'level': 'DEBUG',
+    #         'propagate': False,
+    #     },
+    # }
 
-}
+# }

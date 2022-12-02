@@ -22,5 +22,12 @@ urlpatterns = [
     path("thread/<int:pk>", views.ThreadDetail.as_view(), name="thread_detail"),
     # 返信作成、ページ自体は存在せず、スレッド詳細ページで返信投稿、pkは返信を作りたいスレッドのid
     path("reply_create/<int:pk>", views.ReplyCreate.as_view(), name="reply_create"),
+    # 自己分析一覧ページ
+    path("analysis", views.Analysis.as_view(), name="analysis"),
+    # エニアグラム診断ページ
+    path("enneagram", views.Enneagram.as_view(), name="enneagram"),
+    # エニアグラム診断結果ページ
+    path("enneagram_result", views.EnneagramResult.as_view(), name="enneagram_result"),
+
 
 ]

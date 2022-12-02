@@ -1,14 +1,46 @@
 {% extends "study/base.html" %}
 
-{% block title %}ジャンル作成画面{% endblock %}
+{% block title %}教材登録{% endblock %}
 
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
 
+<ul class="bread-list">
+    <li>Home</li>
+    <li>教材登録</li>
+</ul>
+
 <body>
-    <!-- formにファイルが含まれているとき、enctypeを指定することが必要 -->
-  <form action="" method="POST" enctype="multipart/form-data">
+    <div class="form-wrapper">
+        <form class="form-main" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+    
+            {% for field in form %}
+                <div class="form-label">
+                    {{ field.label}}
+                </div>
+                {{ field }}
+                <div class="form-error">
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+            <div>
+                {% if user.is_superuser %}
+                <div>
+                    <button type="submit" class="form-button">教材登録</button>
+                </div>
+                {% else %}
+                <div>
+                    <button disabled type="submit" class="form-button">教材登録</button>
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+  <!-- formにファイルが含まれているとき、enctypeを指定することが必要 -->
+<!-- <form action="" method="POST" enctype="multipart/form-data">
     <div class="form">
         {% csrf_token %}
         {{ form.non_field_errors }}
@@ -25,11 +57,19 @@
         {% endfor %}
 
         <div>
-            <button type="submit" class="form-button">教材登録</button>
+            {% if user.is_superuser %}
+            <div>
+                <button type="submit" class="form-button">教材登録</button>
+            </div>
+            {% else %}
+            <div>
+                <button disabled type="submit" class="form-button">教材登録</button>
+            </div>
+            {% endif %}
         </div>
     </div>
 
-</form>
+</form> -->
 
 </body>
 {% endblock %}

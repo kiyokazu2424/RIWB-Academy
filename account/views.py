@@ -24,6 +24,18 @@ from django.urls import reverse_lazy
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.sites.shortcuts import get_current_site
+from django.http.response import JsonResponse
+from django.shortcuts import render
+from .forms import return_major_by_college
+
+"""依存チェーン作成のための関数"""
+def getMajor(request):
+    "選択された大学をAjaxで受け取り、学部をテンプレに返す"
+    # post中のcollegeデータを取得
+    college = request.POST.get('college')
+    # 選択された大学により学部を取得
+    colleges = return_major_by_college(college)
+    return JsonResponse({'colleges':colleges})
 
 """プロジェクトで使用しているUserモデルを取得、処理を書きやすくする"""
 user_model = get_user_model()
@@ -45,6 +57,10 @@ class Top(TemplateView):
     "アプリのトップページ"
     template_name = "account/top.html"
 
+class Fee(TemplateView):
+    "料金ページ"
+    template_name = "account/about_fee.html"
+
 class Login(LoginView):
     "ログインページ"
     template_name = "account/login.html"
@@ -59,6 +75,20 @@ class UserCreate(CreateView):
     "①ユーザー登録ページ"
     template_name = 'account/user_create.html'
     form_class = UserCreateForm
+
+    # def get(self,request,*args,**kwargs):
+    #     form  = UserCreateForm()
+    #     context = super().get_context_data(*args,**kwargs)
+    #     context['form'] = form
+    #     return render(request, 'address.html', context)
+ 
+    # def post(self,request,**kwargs):
+    #     form  = UserCreateForm(request.POST)
+    #     if form.is_valid():
+    #         selected_province = request.POST['major']
+    #         obj = form.save(commit=False)
+    #         obj.state = selected_province
+    #         obj.save()
 
     # フォームの内容が有効な時に発動するのがform_valid
     def form_valid(self, form):
@@ -143,7 +173,7 @@ class UserUpdate(OnlyYouMixin,UpdateView):
         context = super().get_context_data(*args, **kwargs)
         # 元ページ情報を追加
         context['from_page'] = 'update'
-        context['message'] = 'ユーザー情報が更新されました'
+        context['message']   = 'ユーザー情報が更新されました'
         return context
 
     # UpdateViewのメソッドの一部を上書き、更新実行後ユーザ詳細ページへ移動、form_validの最後に呼び出される、putをメゾットに指定してもpostと同じ処理がなされる

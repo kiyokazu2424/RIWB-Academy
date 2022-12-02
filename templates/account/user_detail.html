@@ -1,13 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 {% extends "account/base.html" %}
-{% block title %}本登録完了{% endblock %}
+{% block title %}ユーザー情報閲覧{% endblock %}
 
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="title">
-    <p>ユーザー情報</p>
+<ul class="bread-list">
+    <li>Home</li>
+    <li>ユーザー情報閲覧</li>
+</ul>
+
+<div class="page-info">
+    <p>現在のユーザー情報です。</p>
 </div>
 
 <div class="user-table">
@@ -28,11 +33,6 @@
             <tr>
                 <th>職業</th>
                 <td>{{ user.get_job_display }}</td>
-                <!-- {% for num,job in job_lis %}
-                    {% if num == user.job %}
-                        <td>{{ job }}</td>
-                    {% endif %}
-                {% endfor %} -->
             </tr>
         </tbody>
     </table>

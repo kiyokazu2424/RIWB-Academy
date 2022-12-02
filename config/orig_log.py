@@ -1,6 +1,5 @@
 """オリジナルのログミドルウェアを書き込むためのファイル"""
 
-
 import logging
 import threading
 

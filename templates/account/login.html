@@ -1,35 +1,48 @@
+<!DOCTYPE html>
 {% extends "account/base.html" %}
-{% block content %}
+{% block title %}ログイン画面{% endblock %}
 
+{% block content %}
 {% load static %}
 {% load widget_tweaks %}
 
-<body>
-    <form action="" method="POST">
-        <div class="form">
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            {% for field in form %}
-                <div class="form-label">
-                    {{ field.label}}
-                </div>
-                <div class="form-input">
-                    {{ field | add_class:"form-box" }}
-                </div>
-                <div>
-                    {{ field.errors }}
-                </div>
-            {% endfor %}
-            <div>
-                <button type="submit" class="form-button">ログイン</button>
+
+<ul class="bread-list">
+    <li>Top</li>
+    <li>ログイン</li>
+</ul>
+
+<div class="form-wrapper">
+    <form class="form-main" action="" method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {% for field in form %}
+            <div class="form-label">
+                {{ field.label}}
             </div>
-            <div class="form-info">
-                <a href="{% url 'account:user_create' %}">新規登録がまだの方</a>
+            {{ field }}
+            <div class="form-error">
+                {{ field.errors }}
             </div>
-            <div class="form-info">
-                <a href="{% url 'account:password_reset' %}">パスワードを忘れた方</a>
-            </div>
+        {% endfor %}
+        <!-- <input type="password" id="input_pass" name="input_pass" value="">
+        <button id="btn_passview">表示</button> -->
+        <div>
+            <button type="submit" class="form-button">ログイン</button>
         </div>
     </form>
-</body>
+
+    <div class="form-sub">
+        <div class="form-info">
+            <a href="{% url 'account:user_create' %}">新規登録がまだの方</a>
+        </div>
+        <div class="form-info">
+            <a href="{% url 'account:password_reset' %}">パスワードを忘れた方</a>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'account/js/password_view.js' %}"></script>
+
 {% endblock %}

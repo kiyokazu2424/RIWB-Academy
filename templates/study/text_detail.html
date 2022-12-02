@@ -1,114 +1,154 @@
+<!DOCTYPE html>
 {% extends "study/base.html" %}
-
-{% block title %}動画内容{% endblock %}
+{% block title %}教材画面{% endblock %}
 
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
 
-<body>
-  <div>
+<div>
+  <ul class="bread-list">
+      <li>Home</li>
+      <li>データサイエンス</li>
+      <li>{{ text.title }}</li>
+  </ul>
+
+  <div class="study-top">
     <h1>{{ text.title }}</h1>
   </div>
 
-  <div>
+  <div class="video-entire">
 
-    <div class="Video">
-      <video controls width="800" >
-      <source src="{{ text.text.url }}" type="video/mp4"> 
-      </video>
-    </div>
+    <div class="video-col">
 
-    <div class="comment">
+      <div class="video-screen">
+        <video controls src="{{ text.text.url }}"></video>
+      </div>
 
-      <div class="comment_form">
-        <div>
-          <p>コメントする</p>
-        </div>
-  
-        <div>
-          <form action="{% url 'study:comment_create' text.pk %}" method="post">
-            {% csrf_token %}
-            {{ comment_form }}
-
+      <div class="comment-form-wrapper">
+        <form action="{% url 'study:comment_create' text.pk %}" method="post">
+          {% csrf_token %}
+          <div class="comment-form">
+            {{ comment_form.comment }}
+            
             {% if user.email == 'RIWBtest9@gmail.com' %}
-            <div>
-              <button disabled type="submit">コメント完了</button>
-            </div>
+            <button disabled type="submit" class="comment-button">
             {% else %}
-            <div>
-              <button type="submit">コメント完了</button>
-            </div>
+            <button disabled type="submit" class="comment-button">
             {% endif %}
-
-          </form>
-        </div>
+              <label>コメント完了</label>
+              <img src="{% static 'account/img/send-icon.png' %}">
+            </button>
+          </div>
+        </form>
       </div>
 
-      <div class="comment_list">
-        <div>
-          <p>コメント数:{{ comment_num }}</p>
-          {% for comment in text.comments.all %}
-              <div>
-                <p>{{ comment.user_id.last_name }} {{ comment.user_id.first_name }}</p>
-                <p>{{ comment.upload_date | date:"Y.m.n(f)"}}</p>
-              </div>
-              <div>
-                <p>{{ comment.comment }}</p>
-              </div>
-          {% endfor %}
+      <div class="comment-num">
+        <p>コメント数:{{ comment_num }}</p>
+      </div>
+
+      <div class="comment-list">
+        {% for comment in text.comments.all %}
+        <div class="comment-entire">
+          <div class="comment-info">
+            <p>
+              {{ comment.upload_date | date:'Y/m/d H:i' }}　
+              {{ comment.user_id.last_name }} {{ comment.user_id.first_name }}
+            </p>
+          </div>
+          <div class="comment-text">
+            <p>{{ comment.comment }}</p>
+          </div>
         </div>
+        <hr>
+        {% endfor %}
       </div>
 
     </div>
 
-    <br>
-    <br>
-    <br>
+    <div class="thread-col">
 
-    <div class="thread">
+      <div class="thread-btn">
+        <button id="thread-btn">
+          スレッドを作る
+        </button>
+      </div>
 
-      <div class="thread_form">
-        <div>
-          <p>スレッドを作る</p>
-        </div>
-  
-        <div>
+      <div class="thread-input" id="thread-input">
+
+        <div class="thread-form-wrapper">
           <form action="{% url 'study:thread_create' text.pk %}" method="post">
             {% csrf_token %}
-            {{ thread_form }}
-
-            {% if user.email == 'RIWBtest9@gmail.com' %}
-            <div>
-              <button disabled type="submit">作成</button>
+            <div class="thread-form">
+              <p>スレッドタイトル</p>
+              {{ thread_form.title }}
+              <p>スレッドの内容</p>
+              {{ thread_form.message }}
+              <div class="thread-button">
+                <div>
+                  {% if user.email == 'RIWBtest9@gmail.com' %}
+                  <button disabled type="submit" class="thread-button">
+                  {% else %}
+                  <button type="submit" class="thread-button">
+                  {% endif %}
+                    <label>作成</label>
+                    <img src="{% static 'account/img/send-icon.png' %}">
+                  </button>
+                </div>
+              </div>
             </div>
-            {% else %}
-            <div>
-              <button type="submit">作成</button>
-            </div>
-            {% endif %}
           </form>
         </div>
+  
       </div>
 
-      <div class="thread_list">
-        <div>
-          <p>スレッド件数:{{ thread_num }}件</p>
-          {% for thread in text.threads.all %}
-              <div>
-                <p>{{ comment.user_id.last_name }} {{ comment.user_id.first_name }}</p>
-                <p>{{ thread.upload_date | date:"Y.m.n(f)"}}</p>
-              </div>
-              <div>
-                <a href="{% url 'study:thread_detail' thread.pk %}">{{ thread.title }}</a>
-              </div>
-          {% endfor %}
+      <div class="thread-num">
+        <p>
+          スレッド件数:{{ thread_num }}件
+        </p>
+      </div>
+
+      <div class="comment-list">
+        {% for thread in text.threads.all %}
+        <div class="comment-entire">
+
+          <div class="comment-info">
+            <p>
+              {{ thread.upload_date | date:'Y/m/d H:i' }}　
+              {{ thread.user_id.last_name }} {{ thread.user_id.first_name }}
+            </p>
+          </div>
+          <div class="comment-text">
+            <a href="{% url 'study:thread_detail' thread.pk %}">{{ thread.title }}</a>
+          </div>
+          <div class="comment-text">
+            <p>{{ comment.comment }}</p>
+          </div>
+
         </div>
+        <hr>
+        {% endfor %}
       </div>
 
     </div>
-
   </div>
 
-</body>
+
+  <div class="video-exp">
+    <div class="text-exp">
+      <p>動画概要：{{ text.description }}</p>
+    </div>
+    <hr>
+
+    <div class="func-exp">
+      <p>各種機能の説明：コメント機能は動画に対する疑問、わかりにくかった点など気軽に書き込みください。<br>
+        スレッドは動画やその他の学習などに対して困ってることや相談などを投稿できます。立てたスレッドに他のユーザーが回答してくれるかも!<br>
+        乱暴な言葉遣い、誹謗中傷などを含む書き込みが目立つユーザーには厳正な処分を下す場合がございます。
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script src="{% static 'study/js/thread.js' %}"></script>
 {% endblock %}

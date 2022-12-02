@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% extends "study/base.html" %}
+{% block title %}エニアグラム診断画面{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+
+<div>
+
+  <ul class="bread-list">
+      <li>Home</li>
+      <li>自己分析ツール</li>
+      <li>エニアグラム診断</li>
+  </ul>
+
+  <div class="study-top">
+    <h1>エニアグラム自己分析</h1>
+  </div>
+  
+  <div class="enneagram-exp">
+    <p>診断方法：すべての問いに対して当てはまる度合いをお答えください。あまり深く考えずに、ありのまま答えてください。</p>
+    <p>1：全くそうではない　2：滅多にそうではない　3：多少そうである　4：概してそうである　5：まさにそうである</p>
+  </div>
+  
+  <div class="question">
+    <form class="checkboxes" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for question in questions %}
+      <div class="question">
+
+        <div class="question-text">
+          <p>
+            {{ question }}
+          </p>
+        </div>
+
+        <div class="question-form">
+          <div>
+            <div>
+              <input required type="radio" name="{{ forloop.counter }}" value="1">
+            </div>
+            <div>
+              <label>1</label>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input required type="radio" name="{{ forloop.counter }}" value="2">
+            </div>
+            <div>
+              <label>2</label>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input required type="radio" checked name="{{ forloop.counter }}" value="3">
+            </div>
+            <div>
+              <label>3</label>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input required type="radio" name="{{ forloop.counter }}" value="4">
+            </div>
+            <div>
+              <label>4</label>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input required type="radio" name="{{ forloop.counter }}" value="5">
+            </div>
+            <div>
+              <label>5</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <br>
+      {% endfor %}
+
+      <div class="question-button">
+        <input type="submit" name="button" value="送信">
+      </div>
+  
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
